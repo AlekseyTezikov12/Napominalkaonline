@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь-Напоминалка</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle toast-icon"></i>
+            <span id="toastMessage">Напоминание добавлено!</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="welcome-section">
+            <h1 class="welcome-text">Добро пожаловать в онлайн напоминалку!</h1>
+            <div class="time-date">
+                <div class="clock">
+                    <i class="fas fa-clock"></i>
+                    <span id="time">00:00:00</span>
+                </div>
+                <div class="date">
+                    <i class="fas fa-calendar"></i>
+                    <span id="date">01.01.2024</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="categories-section">
+                <h2>Категории</h2>
+                <form id="categoryForm" class="category-form">
+                    <div class="form-group">
+                        <input type="text" id="categoryName" placeholder="Название новой категории" required>
+                        <input type="color" id="categoryColor" value="#4ecca3">
+                        <button type="submit" class="add-btn">
+                            <i class="fas fa-plus"></i> Добавить категорию
+                        </button>
+                    </div>
+                </form>
+                <div id="categoriesList" class="categories-list">
+                    <!-- Здесь будут отображаться категории -->
+                </div>
+            </section>
+
+            <section class="reminders-section">
+                <h2>Напоминания</h2>
+                <div class="filter-section">
+                    <select id="categoryFilter" class="category-filter">
+                        <option value="all">Все категории</option>
+                    </select>
+                </div>
+                <form id="reminderForm" class="reminder-form">
+                    <div class="form-group">
+                        <input type="text" id="reminderText" placeholder="Введите напоминание" required>
+                        <select id="reminderCategory" required>
+                            <option value="">Выберите категорию</option>
+                        </select>
+                        <input type="datetime-local" id="reminderDateTime" required>
+                        <button type="submit" class="add-btn">
+                            <i class="fas fa-plus"></i> Добавить
+                        </button>
+                    </div>
+                </form>
+                <div id="remindersList" class="reminders-list">
+                    <!-- Здесь будут отображаться напоминания -->
+                </div>
+            </section>
+        </main>
+
+        <div class="auth-container">
+            <button class="auth-btn" id="authBtn">
+                <i class="fab fa-google"></i> Войти
+            </button>
+            <div class="auth-dropdown" id="authDropdown">
+                <button id="googleLogin"><i class="fab fa-google"></i> Google</button>
+                <button id="siteRegister"><i class="fas fa-user-plus"></i> Регистрация</button>
+            </div>
+        </div>
+    </div>
+    <audio id="sound-add" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b8fa6b7b.mp3" preload="auto"></audio>
+    <audio id="sound-delete" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b8fa6b7b.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
